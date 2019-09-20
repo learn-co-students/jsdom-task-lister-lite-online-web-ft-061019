@@ -1,3 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // your code here
+  document.getElementById("new-task-description").innerHTML += "sorry charlie, you can't do this!";
+  event.preventDefault()
 });

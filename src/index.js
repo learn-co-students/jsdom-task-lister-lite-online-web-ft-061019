@@ -1,3 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // your code here
+  document.querySelector().addEventListener("submit", function(event) {
+    document.getElementById("tasks").innerHTML += "";
+    event.preventDefault();
+}, false);
 });
+

@@ -1,30 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // your code here
-  let form = document.querySelector("#create-task-form")
-  
-  let taskDescription = document.querySelector('#new-task-description')
-
-  let ulTasks = document.querySelector("#tasks")
-
-
-  form.addEventListener("submit", addTask)
-
-  function addTask(event){
-    event.preventDefault()
-    let newLi = document.createElement('li')
-    newLi.textContent = taskDescription.value
-    let taskPriority = document.querySelector("#priority").value
-    newLi.style.color = taskPriority  
-    let deleteButton = document.createElement('button')
-    deleteButton.innerText = "X"
-    newLi.appendChild(deleteButton)
-    deleteButton.addEventListener('click', deleteTask)
-    ulTasks.appendChild(newLi)
-  }
-
-  function deleteTask(event){
-    event.currentTarget.parentElement.remove()
-  }
-
-  
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector('form').addEventListener('submit', submitForm);
+  loadTasks()
 });
+
+function submitForm(e) {
+  e.preventDefault();
+
+  let description = document.getElementById("new-task-description").value 
+  let ul = document.getElementById("tasks")
+  ul.innerHTML += `<li>${description}<li>`
+
+  
+}
+
+function loadTasks() {
+  let ul = document.getElementById("tasks")
+  loadTasks.forEach(function(task) {
+    ul.innerHTML += `<li>${task.description}<li>`
+  })
+}
